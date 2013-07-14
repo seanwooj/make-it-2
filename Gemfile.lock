@@ -71,6 +71,7 @@ GEM
     ffi (1.9.0)
     formatador (0.2.4)
     fssm (0.2.10)
+    geocoder (1.1.8)
     guard (1.8.1)
       formatador (>= 0.2.4)
       listen (>= 1.0.0)
@@ -207,12 +208,14 @@ DEPENDENCIES
   compass-rails
   debugger
   factory_girl_rails
+  geocoder
   guard-rspec
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails
   pg
   rails (= 4.0.0)
+  rb-fsevent
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
