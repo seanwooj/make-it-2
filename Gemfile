@@ -32,6 +32,7 @@ group :test do
   gem 'guard-rspec'
   gem 'rb-fsevent'
   gem 'terminal-notifier-guard'
+  gem 'shoulda-matchers'
 end
 
 group :development do

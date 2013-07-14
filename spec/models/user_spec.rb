@@ -49,8 +49,6 @@ describe User do
     valid_user.should_not be_valid
   end
 
-  # TODO - this is brittle as fuck
-  it "should have many locations" do
-    valid_user.locations.should_not be_nil
-  end
+  it { should have_many(:locations) }
+
 end

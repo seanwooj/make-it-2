@@ -11,6 +11,8 @@ describe Location do
       user_id: 1
   ) }
 
+  it { should belong_to(:user) }
+
   context 'New location object' do
     it 'is valid when all fields are populated' do
       valid_location.should be_valid
