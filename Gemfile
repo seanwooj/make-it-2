@@ -32,3 +32,7 @@ group :test do
   gem 'rb-fsevent'
   gem 'terminal-notifier-guard'
 end
+
+group :development do
+  gem 'awesome_print', :require => 'ap'
+end
