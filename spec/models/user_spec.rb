@@ -4,6 +4,7 @@ describe User do
   subject(:valid_user) { User.new(
       email: "boop@bleep.com",
       full_name: "bleep bloop",
+      password: "password",
       has_machine: false
   ) }
 

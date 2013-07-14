@@ -2,22 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa347135-259a-4e52-b9f9-7a4b1a6e5c8d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20130714031310_create_users.rb" afterPath="$PROJECT_DIR$/db/migrate/20130714031310_create_users.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/location.rb" afterPath="$PROJECT_DIR$/app/models/location.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/make-it-2.iml" afterPath="$PROJECT_DIR$/.idea/make-it-2.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/user_spec.rb" afterPath="$PROJECT_DIR$/spec/models/user_spec.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="make-it-2.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Gemfile" changelist="aa347135-259a-4e52-b9f9-7a4b1a6e5c8d" time="1373781840348" ignored="false" />
-    <file path="/Dummy.txt" changelist="aa347135-259a-4e52-b9f9-7a4b1a6e5c8d" time="1373780842975" ignored="false" />
+    <file path="/Dummy.txt" changelist="aa347135-259a-4e52-b9f9-7a4b1a6e5c8d" time="1373782191950" ignored="false" />
     <file path="/database.yml" changelist="aa347135-259a-4e52-b9f9-7a4b1a6e5c8d" time="1373769563337" ignored="false" />
     <file path="/a.dummy" changelist="aa347135-259a-4e52-b9f9-7a4b1a6e5c8d" time="1373769769505" ignored="false" />
     <file path="/spec_helper.rb" changelist="aa347135-259a-4e52-b9f9-7a4b1a6e5c8d" time="1373770604029" ignored="false" />
@@ -25,7 +16,7 @@
     <file path="/location_spec.rb" changelist="aa347135-259a-4e52-b9f9-7a4b1a6e5c8d" time="1373781456942" ignored="false" />
     <file path="/user.rb" changelist="aa347135-259a-4e52-b9f9-7a4b1a6e5c8d" time="1373781700117" ignored="false" />
     <file path="$USER_HOME$/workspace/unow-web/spec/models/user.rb" changelist="aa347135-259a-4e52-b9f9-7a4b1a6e5c8d" time="1373778469073" ignored="false" />
-    <file path="/user_spec.rb" changelist="aa347135-259a-4e52-b9f9-7a4b1a6e5c8d" time="1373780991169" ignored="false" />
+    <file path="/user_spec.rb" changelist="aa347135-259a-4e52-b9f9-7a4b1a6e5c8d" time="1373782218401" ignored="false" />
     <file path="/development.rb" changelist="aa347135-259a-4e52-b9f9-7a4b1a6e5c8d" time="1373781939277" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,10 +46,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="development.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="development.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="69" selection-start="1202" selection-end="1202" vertical-scroll-proportion="0.5984042">
+            <state line="30" column="69" selection-start="1202" selection-end="1202" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_spec.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spec/models/user_spec.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="27" selection-start="165" selection-end="165" vertical-scroll-proportion="0.11968085">
               <folding />
             </state>
           </provider>
@@ -112,13 +112,13 @@
         <option value="$PROJECT_DIR$/config/database.yml" />
         <option value="$PROJECT_DIR$/spec/spec_helper.rb" />
         <option value="$PROJECT_DIR$/spec/factories/user.rb" />
-        <option value="$PROJECT_DIR$/spec/models/user_spec.rb" />
         <option value="$PROJECT_DIR$/app/models/location.rb" />
         <option value="$PROJECT_DIR$/spec/models/location_spec.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130714031310_create_users.rb" />
+        <option value="$PROJECT_DIR$/spec/models/user_spec.rb" />
       </list>
     </option>
   </component>
@@ -495,7 +495,11 @@
       <created>1373780849910</created>
       <updated>1373780849910</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added devise, specs failing&#10;">
+      <created>1373782196607</created>
+      <updated>1373782196607</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -564,7 +568,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="started filling out the user, writing specs, etc&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="added devise, specs failing&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -582,6 +586,7 @@
     <MESSAGE value="added geocoded address method" />
     <MESSAGE value="add latitude and longitude to location" />
     <MESSAGE value="started filling out the user, writing specs, etc&#10;" />
+    <MESSAGE value="added devise, specs failing&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -625,13 +630,6 @@
     <entry file="file://$PROJECT_DIR$/app/models/location.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="2" selection-start="112" selection-end="112" vertical-scroll-proportion="0.039893616">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/models/user_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="67" selection-start="237" selection-end="237" vertical-scroll-proportion="0.122340426">
           <folding />
         </state>
       </provider>
@@ -687,7 +685,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="69" selection-start="1202" selection-end="1202" vertical-scroll-proportion="0.5984042">
+        <state line="30" column="69" selection-start="1202" selection-end="1202" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/user_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="27" selection-start="165" selection-end="165" vertical-scroll-proportion="0.11968085">
           <folding />
         </state>
       </provider>
