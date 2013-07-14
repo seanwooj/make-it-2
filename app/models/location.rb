@@ -1,6 +1,11 @@
 class Location < ActiveRecord::Base
   validates :address_1, :city, :zipcode, :state, :country, :user_id, presence: true
+  belongs_to :user
+
+  # geocoder
+  geocoded_by :address_for_geocoder
   after_validation :create_geocoded_address
+  after_validation :geocode, if: :address_for_geocoder_changed?
 
   private
 

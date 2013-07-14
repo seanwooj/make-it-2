@@ -40,6 +40,14 @@ describe Location do
         valid_location.save!
         valid_location.address_for_geocoder.should == "86 Lessay, Newport Coast, California 92657, United States of America"
       end
+
+      it 'creates the correct latitude and longitude when the model is saved' do
+        valid_location.longitude.should be_nil
+        valid_location.latitude.should be_nil
+        valid_location.save!
+        valid_location.latitude.should == 33.6103025
+        valid_location.longitude.should == -117.8353995
+      end
     end
   end
 end
