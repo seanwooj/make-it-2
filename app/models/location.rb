@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  validates :address_1, :city, :zipcode, :state, :country, :user_id, presence: true
+  validates :address_1, :city, :zipcode, :state, :country, presence: true
   belongs_to :user
 
   # geocoder

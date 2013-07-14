@@ -7,6 +7,7 @@ describe User do
       has_machine: false
   ) }
 
+  # TODO - not sure if this is the best way to mock an association.
   let!(:location) { valid_user.locations.build(
       address_1: "86 Lessay",
       address_2: "Upstairs Bedroom",
@@ -47,6 +48,7 @@ describe User do
     valid_user.should_not be_valid
   end
 
+  # TODO - this is brittle as fuck
   it "should have many locations" do
     valid_user.locations.should_not be_nil
   end
