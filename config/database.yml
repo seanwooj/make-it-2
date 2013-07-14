@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: make-it-2_development
+  pool: 5
+  host: localhost
+  username: postgres
+  password: password
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: make-it-2_test
+  pool: 5
+  host: localhost
+  username: postgres
+  password: password
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: make-it-2_production
+  pool: 5
+  host: localhost
+  username: postgres
+  password: password
