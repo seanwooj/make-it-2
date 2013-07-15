@@ -51,4 +51,9 @@ describe User do
 
   it { should have_many(:locations) }
 
+  context "locations" do
+    it "has a primary location set" do
+      valid_user.primary_location.should == location
+    end
+  end
 end

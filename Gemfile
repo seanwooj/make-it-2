@@ -16,7 +16,7 @@ gem 'zurb-foundation', '~> 4.0.0'
 
 # functionality enhancing gems
 gem 'geocoder'
-gem 'devise'
+gem 'devise', '~> 3.0.0.rc'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
