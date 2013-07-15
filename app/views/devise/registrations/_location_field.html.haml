@@ -1,4 +1,12 @@
+- content_for :javascripts do
+  %script{:src => "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"}
+  = javascript_include_tag 'google_maps/google-maps-autocomplete'
+
 %div
+  #panel
+    %input#searchTextField{:type => "text"}/
+  #map-canvas
+
   %fieldset
     = f.fields_for(:locations) do |builder|
       = builder.label :address_1
