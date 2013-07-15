@@ -1,6 +1,9 @@
 - content_for :javascripts do
   %script{:src => "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"}
   = javascript_include_tag 'google_maps/google-maps-autocomplete'
+  :javascript
+    $(document).ready(initialize);
+    $(document).on('page:load', initialize);
 
 %div
   #panel
