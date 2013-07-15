@@ -2,12 +2,8 @@ require 'spec_helper'
 
 describe Location do
   subject(:valid_location) { Location.new(
-      address_1: "86 Lessay",
+      address: "86 Lessay, Newport Coast, CA 92657, USA",
       address_2: "Upstairs Bedroom",
-      city: "Newport Coast",
-      state: "California",
-      zipcode: "92657",
-      country: "United States of America",
       user_id: 1
   ) }
 
@@ -19,7 +15,7 @@ describe Location do
     end
 
     it 'is not valid with fields removed' do
-      valid_location.address_1 = nil
+      valid_location.address = nil
       valid_location.should_not be_valid
     end
 
@@ -30,18 +26,7 @@ describe Location do
   end
 
   context 'geocoder' do
-    describe '#create_geocoded_address' do
-      it 'creates a geocoded address from the fields' do
-        valid_location.send(:create_geocoded_address)
-        valid_location.save!
-        valid_location.address_for_geocoder.should == "86 Lessay, Newport Coast, California 92657, United States of America"
-      end
-
-      it 'creates a geocoded address when the model is saved' do
-        valid_location.address_for_geocoder.should be_nil
-        valid_location.save!
-        valid_location.address_for_geocoder.should == "86 Lessay, Newport Coast, California 92657, United States of America"
-      end
+    describe '#geocoder' do
 
       it 'creates the correct latitude and longitude when the model is saved' do
         valid_location.longitude.should be_nil

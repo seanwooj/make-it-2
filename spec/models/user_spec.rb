@@ -10,12 +10,8 @@ describe User do
 
   # TODO - not sure if this is the best way to mock an association.
   let!(:location) { valid_user.locations.build(
-      address_1: "86 Lessay",
+      address: "86 Lessay, Newport Coast, CA 92657, USA",
       address_2: "Upstairs Bedroom",
-      city: "Newport Coast",
-      state: "California",
-      zipcode: "92657",
-      country: "United States of America",
       user_id: 1
   )}
 

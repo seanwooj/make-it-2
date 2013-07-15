@@ -53,10 +53,11 @@ function initialize() {
                 (place.address_components[2] && place.address_components[2].short_name || '')
             ].join(' ');
         }
-
+        $('#address').val(place.formatted_address);
         infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
         infowindow.open(map, marker);
     });
 }
 
-$(document).on('page:load', initialize());
+$(document).ready(initialize)
+$(document).on('page:load', initialize)
