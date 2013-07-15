@@ -1,0 +1,21 @@
+%div
+  %fieldset
+    = f.fields_for(:locations) do |builder|
+      = builder.label :address_1
+      = builder.text_field :address_1
+      %br/
+      = builder.label :address_2
+      = builder.text_field :address_2
+      %br/
+      = builder.label :city
+      = builder.text_field :city
+      %br/
+      = builder.label :state
+      = builder.text_field :state
+      %br/
+      = builder.label :zipcode
+      = builder.text_field :zipcode
+      %br/
+      = builder.label :country
+      = builder.text_field :country
+      %br/
