@@ -7,15 +7,14 @@
 
 %div
   #panel
-    %label Address
-    %br
-    %input#searchTextField{:type => "text"}/
+    = f.fields_for(:locations) do |builder|
+      = builder.label :address
+      = builder.text_field :address, id: 'address'
+      = builder.label :address_2
+      = builder.text_field :address_2
+      %br/
   #map-canvas
 
 
 
-  = f.fields_for(:locations) do |builder|
-    = builder.hidden_field :address, id: 'address'
-    = builder.label :address_2
-    = builder.text_field :address_2
-    %br/
+

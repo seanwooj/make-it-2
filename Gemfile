@@ -23,8 +23,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'debugger', group: [:development, :test]
-gem "rspec-rails", group: [:test, :development]
+group :development, :test do
+  gem 'debugger'
+  gem 'rspec-rails'
+  gem 'launchy'
+end
+
 
 group :test do
   gem 'factory_girl_rails'
@@ -33,6 +37,7 @@ group :test do
   gem 'rb-fsevent'
   gem 'terminal-notifier-guard'
   gem 'shoulda-matchers'
+  gem 'database_cleaner'
 end
 
 group :development do
