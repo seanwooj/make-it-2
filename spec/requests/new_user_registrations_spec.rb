@@ -12,7 +12,7 @@ describe "NewUserRegistrations" do
   describe "google maps autocomplete" do
     it "creates the correct address when user signs up", :js => true do
       user = FactoryGirl.build(:user)
-      selector = '.pac-item:contains("port Beach")'
+      selector = '.pac-item:contains(\"port Beach\")'
       visit new_user_registration_path
       fill_in "Email", :with => user.email
       fill_in "Full name", :with => user.full_name
@@ -20,9 +20,10 @@ describe "NewUserRegistrations" do
       fill_in "Password confirmation", :with => user.password
       fill_in "address", :with => "86 Lessay, New"
       sleep 1
-      page.execute_script " $('#{selector}').trigger(\"mouseenter\").click();"
+      find('#address').native.send_keys :arrow_down
+      find('#address').native.send_keys :return
       click_button "Sign up"
-      page.should have_content "Log out"
+      page.should have_content "sign out"
 
 
     end
@@ -33,7 +34,6 @@ describe "NewUserRegistrations" do
       fill_in "Email", :with => user.email
       fill_in "Full name", :with => user.full_name
       fill_in "Password", :with => user.password
-      fill_in "Password confirmation", :with => user.password
       fill_in "address", :with => "86 Lessay, New"
       click_button "Sign up"
       page.should_not have_css("#user_locations_attributes_1_address_2")

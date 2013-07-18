@@ -5,6 +5,18 @@
     $(document).ready(initialize);
     $(document).on('page:load', initialize);
 
+    // Prevents return from submitting the form because it's frustrating when using the map autocomplete
+    var preventEnter = function(){
+      $(window).keydown(function(event){
+        if(event.keyCode == 13) {
+          event.preventDefault();
+          return false;
+        }
+      });
+    };
+    $(document).ready(preventEnter);
+    $(document).on('page:load', preventEnter);
+
 %div
   #panel
     = f.fields_for(:locations) do |builder|

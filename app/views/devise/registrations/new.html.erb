@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 
-<% resource.locations.build %>
+<% resource.locations.build if resource.locations.length < 1 %>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
