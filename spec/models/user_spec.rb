@@ -11,8 +11,7 @@ describe User do
   # TODO - not sure if this is the best way to mock an association.
   let!(:location) { valid_user.locations.build(
       address: "86 Lessay, Newport Coast, CA 92657, USA",
-      address_2: "Upstairs Bedroom",
-      user_id: 1
+      address_2: "Upstairs Bedroom"
   )}
 
   it "should be a valid user" do
@@ -46,6 +45,7 @@ describe User do
   end
 
   it { should have_many(:locations) }
+  it { should have_many(:machines) }
 
   context "locations" do
     it "has a primary location set" do

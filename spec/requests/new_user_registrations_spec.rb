@@ -36,7 +36,9 @@ describe "NewUserRegistrations" do
       fill_in "Password", :with => user.password
       fill_in "address", :with => "86 Lessay, New"
       click_button "Sign up"
+      # todo this is a kludge. fix later
       page.should_not have_css("#user_locations_attributes_1_address_2")
     end
   end
 end
+
