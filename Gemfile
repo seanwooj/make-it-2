@@ -17,6 +17,10 @@ gem 'zurb-foundation', '~> 4.0.0'
 # functionality enhancing gems
 gem 'geocoder'
 gem 'devise', '~> 3.0.0.rc'
+gem 'kaminari'
+gem 'balanced'
+gem 'cancan'
+gem 'kaminari'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
