@@ -28,7 +28,7 @@ describe "NewUserRegistrations" do
 
     end
 
-    it "should not create double resources when an error page is reached", :js => true do
+    it "does not create double resources when an error page is reached", :js => true do
       user = FactoryGirl.build(:user)
       visit new_user_registration_path
       fill_in "Email", :with => user.email

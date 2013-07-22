@@ -236,6 +236,7 @@ DEPENDENCIES
   pg
   rails (= 4.0.0)
   rb-fsevent
+  rspec-expectations
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc

@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :locations, allow_destroy: true
   validates_presence_of :locations
 
-  # lazy - this defaults to use the first address that's created. I can add more methods for having multiple
-  # addresses later, but this will do for now
+  # we will only deal with one address for now.
+  # there is a dependency for having only one address in the machine search that will have to be addressed
   def primary_location
     locations = self.locations
     if locations.length == 1

@@ -31,6 +31,7 @@ end
 
 
 group :test do
+  gem 'rspec-expectations'
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'guard-rspec'

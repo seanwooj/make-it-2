@@ -1,8 +1,7 @@
 MakeIt2::Application.routes.draw do
-  get "users/index"
   devise_for :users
   resources :users
-
+  resources :machines
   root to: 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

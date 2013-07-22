@@ -1,0 +1,24 @@
+- content_for :javascripts do
+  %script{:src => "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"}
+  = javascript_include_tag 'google_maps/google-maps-autocomplete'
+  :javascript
+    $(document).ready(initialize({map:false}));
+    $(document).on('page:load', initialize({map:false}));
+
+%h1 Machines#index
+
+.search
+  = form_tag machines_path, method: "get" do
+    = text_field_tag :search, params[:search], placeholder: "Search", id: "address"
+    = number_field_tag :distance, params[:distance], placeholder: "Distance"
+    = select_tag(:category, options_for_select([['Laser Cutter', 'Laser Cutter'], ['3d Printer', '3d Printer']]))
+    = submit_tag "search", name: nil, class: "button"
+
+- @machines.each do |machine|
+  machine name:
+  = machine.name
+  address:
+  = machine.locations.last.address
+  name:
+  = machine.user.full_name
+  %br

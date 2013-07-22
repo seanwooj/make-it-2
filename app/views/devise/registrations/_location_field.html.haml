@@ -2,8 +2,8 @@
   %script{:src => "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"}
   = javascript_include_tag 'google_maps/google-maps-autocomplete'
   :javascript
-    $(document).ready(initialize);
-    $(document).on('page:load', initialize);
+    $(document).ready(initialize({map: true}));
+    $(document).on('page:load', initialize({map: true}));
 
     // Prevents return from submitting the form because it's frustrating when using the map autocomplete
     var preventEnter = function(){
