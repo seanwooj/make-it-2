@@ -21,6 +21,8 @@ gem 'kaminari'
 gem 'balanced'
 gem 'cancan'
 gem 'kaminari'
+gem 'carrierwave'
+gem 'paperclip'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
