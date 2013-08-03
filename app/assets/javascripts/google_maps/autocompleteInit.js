@@ -1,6 +1,5 @@
 function initialize(initOptions) {
     if (initOptions.map) {
-        console.log("boop");
         var mapOptions = {
             center: new google.maps.LatLng(-33.8688, 151.2195),
             zoom: 13,

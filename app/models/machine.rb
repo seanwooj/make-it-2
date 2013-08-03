@@ -8,6 +8,24 @@ class Machine < ActiveRecord::Base
   validates :description, presence: true
   validates :user_id, presence: true # need to add validation to ensure that this is a real user
 
+
+  def latlng
+    loc = self.locations.first
+    {lat: loc[:latitude], lng: loc[:longitude]}
+  end
+
+  def address_info
+    latlng = self.latlng
+    latlng[:address] = self.locations.first[:address]
+    latlng
+  end
+
+  # might be redundant because of #address_info
+  def json_for_map
+    loc = self.latlng
+    {name: self.name, lat: loc[:lat], lng: loc[:lng]}.to_json
+  end
+
   # I don't do anything with options yet, but plan on adding the ability to pass in category search as well as some
   # other fun stuff
   def self.search(address, opts = {distance: 20})
@@ -24,6 +42,10 @@ class Machine < ActiveRecord::Base
       end
     end
     machines
+  end
+
+  def as_json(options = {})
+    super(methods: :address_info, include: :user)
   end
 
 end

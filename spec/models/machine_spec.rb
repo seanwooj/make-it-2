@@ -36,6 +36,23 @@ describe Machine do
     valid_machine.should_not be_valid
   end
 
+  describe "location functionality" do
+    it "returns the correct latitude and longitude" do
+      machine = FactoryGirl.create(:machine)
+      latlng = machine.latlng
+      latlng.should == {:lat => 33.6103025, :lng => -117.8353995}
+    end
+
+    it "returns the correct address object" do
+      machine = FactoryGirl.create(:machine)
+      address_info = machine.address_info
+      address_info.should == { :lat => 33.6103025,
+                               :lng => -117.8353995,
+                               :address => "86 Lessay, Newport Coast, CA 92657, USA"
+                             }
+    end
+  end
+
   context "search functionality" do
     before(:all) do
       10.times do
@@ -59,9 +76,22 @@ describe Machine do
         machines = Machine.search("san francisco, ca")
         machines.last.locations.last.address.should include("San Francisco")
       end
+
+      it "finds machines everywhere!" do
+        machines = Machine.search("san francisco, ca", {distance: 5000})
+        machines.length.should == 11
+      end
+
+      it "finds machines nowhere :(" do
+        machines = Machine.search("irvine, ca", {distance:0})
+        machines.length.should == 0
+      end
+
+      #TODO have to change this later when I actually add laser cutters
+      it "doesn't find any laser cutters" do
+        machines = Machine.search("los angeles, ca", {category: "Laser Cutter"})
+        machines.length.should == 0
+      end
     end
   end
 end
-
-
-

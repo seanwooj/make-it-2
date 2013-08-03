@@ -1,24 +1,25 @@
 - content_for :javascripts do
   %script{:src => "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"}
-  = javascript_include_tag 'google_maps/google-maps-autocomplete'
+  = javascript_include_tag 'machines'
+
   :javascript
     $(document).ready(initialize({map:false}));
     $(document).on('page:load', initialize({map:false}));
+    $(document).ready(initializePage());
+    $(document).on('page:load', initializePage());
 
 %h1 Machines#index
 
 .search
-  = form_tag machines_path, method: "get" do
-    = text_field_tag :search, params[:search], placeholder: "Search", id: "address"
-    = number_field_tag :distance, params[:distance], placeholder: "Distance", value: 20
-    = select_tag(:category, options_for_select([['Laser Cutter', 'Laser Cutter'], ['3d Printer', '3d Printer']]))
-    = submit_tag "search", name: nil, class: "button"
+  %form{class: "machine_search"}
+    %input{placeholder: "Search", id: "address"}
+    %input{type: "number", id: "distance", placeholder: "Distance", value: 20}
+    = select_tag(:category, options_for_select([['3d Printer', '3d Printer'], ['Laser Cutter', 'Laser Cutter']]), id: "category")
+    %input{type: "submit"}
 
-- @machines.each do |machine|
-  machine name:
-  = machine.name
-  address:
-  = machine.locations.last.address
-  name:
-  = machine.user.full_name
-  %br
+#map-canvas
+
+.ajax-loader
+  = image_tag("loader.gif", alt: "loading results")
+
+.results

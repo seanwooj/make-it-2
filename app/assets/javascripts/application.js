@@ -13,4 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+
+// CUSTOM SCRIPTS
+//= require google_maps/autocompleteInit
+//= require google_maps/mapInit
+
+// VENDOR SCRIPTS
+//= require purl

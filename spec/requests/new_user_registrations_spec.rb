@@ -12,7 +12,6 @@ describe "NewUserRegistrations" do
   describe "google maps autocomplete" do
     it "creates the correct address when user signs up", :js => true do
       user = FactoryGirl.build(:user)
-      selector = '.pac-item:contains(\"port Beach\")'
       visit new_user_registration_path
       fill_in "Email", :with => user.email
       fill_in "Full name", :with => user.full_name
@@ -24,8 +23,6 @@ describe "NewUserRegistrations" do
       find('#address').native.send_keys :return
       click_button "Sign up"
       page.should have_content "sign out"
-
-
     end
 
     it "does not create double resources when an error page is reached", :js => true do
