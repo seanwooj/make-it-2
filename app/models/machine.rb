@@ -29,19 +29,16 @@ class Machine < ActiveRecord::Base
   # I don't do anything with options yet, but plan on adding the ability to pass in category search as well as some
   # other fun stuff
   def self.search(address, opts = {distance: 20})
-    machines = []
-    # jesus christ, this is slow. nested loops == bad, though can't figure out how to do this better.
-    # also, doesn't find by category yet
-    Location.near(address, opts[:distance]).joins(:machines).each do |location|
-      location.machines.each do |machine|
-        if opts[:category]
-          machines << machine if machine.category == opts[:category]
-        else
-          machines << machine
-        end
-      end
+    lat, lng = Geocoder::Calculations.extract_coordinates(address)
+    if Geocoder::Calculations.coordinates_present?(lat, lng)
+      options = Location.send :near_scope_options, lat, lng, opts[:distance]
+      conditions = options[:conditions]
+      machines = joins(:locations).where(conditions).distinct
+      machines = machines.where('lower(machines.category) = ?', opts[:category].to_s.downcase) if opts[:category]
+      machines
+    else
+      where(false)
     end
-    machines
   end
 
   def as_json(options = {})
