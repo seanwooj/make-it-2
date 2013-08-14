@@ -5,7 +5,7 @@ development:
   pool: 5
   host: localhost
   username: postgres
-  password: password
+  password:
 
 test:
   adapter: postgresql
@@ -14,7 +14,7 @@ test:
   pool: 5
   host: localhost
   username: postgres
-  password: password
+  password:
 
 production:
   adapter: postgresql
@@ -23,4 +23,4 @@ production:
   pool: 5
   host: localhost
   username: postgres
-  password: password
+  password:
