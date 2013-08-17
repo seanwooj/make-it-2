@@ -1,21 +1,8 @@
 - content_for :javascripts do
-  %script{:src => "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places?key=AIzaSyCRxtpeDmx_uUGpiD8hbUJ73ZucaNM1VHQ"}
-  = javascript_include_tag 'google_maps/autocompleteInit'
+  %script{:src => "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&key=AIzaSyBb2gpZp1IWftceIrCBoY5dWUjdRMl_94Q"}
+  = javascript_include_tag 'registrations'
   :javascript
-    $(document).ready(initialize({map: false}));
-    $(document).on('page:load', initialize({map: false}));
-
-    // Prevents return from submitting the form because it's frustrating when using the map autocomplete
-    var preventEnter = function(){
-      $(window).keydown(function(event){
-        if(event.keyCode == 13) {
-          event.preventDefault();
-          return false;
-        }
-      });
-    };
-    $(document).ready(preventEnter);
-    $(document).on('page:load', preventEnter);
+    $(document).ready(mkit.registrationsNew.init());
 
 %div
   #panel
@@ -24,6 +11,8 @@
       = builder.text_field :address, id: 'address'
       = builder.label :address_2
       = builder.text_field :address_2
+      = builder.hidden_field :latitude
+      = builder.hidden_field :longitude
       %br/
   #map-canvas
 

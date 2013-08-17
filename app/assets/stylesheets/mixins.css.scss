@@ -1,0 +1,5 @@
+@import 'compass';
+
+@mixin default-text-shadow {
+  @include box-shadow(rgba(0,0,0,0.05) 2px 2px 5px);
+}

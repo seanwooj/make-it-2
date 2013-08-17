@@ -1,4 +1,6 @@
-function initialize(initOptions) {
+window.mkit = window.mkit || {};
+
+mkit.initializeAutocomplete = function(initOptions) {
     if (initOptions.map) {
         var mapOptions = {
             center: new google.maps.LatLng(-33.8688, 151.2195),
@@ -68,6 +70,7 @@ function initialize(initOptions) {
             infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
             infowindow.open(map, marker);
         }
+        debugger;
 
     });
 }

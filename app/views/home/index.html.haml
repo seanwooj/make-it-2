@@ -1,8 +1,9 @@
 - content_for :javascripts do
-  %script{:src => "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"}
+  %script{:src => "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&key=AIzaSyBb2gpZp1IWftceIrCBoY5dWUjdRMl_94Q"}
+  = javascript_include_tag 'home'
+
   :javascript
-    $(document).ready(initialize({map:false}));
-    $(document).on('page:load', initialize({map:false}));
+    $(document).ready(mkit.homeIndex.init());
 
 .search
   = form_tag machines_path, method: "get" do

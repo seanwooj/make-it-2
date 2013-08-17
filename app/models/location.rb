@@ -5,8 +5,13 @@ class Location < ActiveRecord::Base
 
   # geocoder
   geocoded_by :address
-  after_validation :geocode, if: :address_changed?
+  after_validation :assign_city, if: :address_changed?
 
   private
+
+  def assign_city
+    self.city = Geocoder.search(self.address)[0].city
+    self.save!
+  end
 
 end

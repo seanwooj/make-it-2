@@ -1,20 +1,33 @@
-function initializePage(){
-    initMap();
-    searchFromQueryString();
+//= include google_maps/autocompleteInit
 
-    $(".machine_search > input[type='submit']").on("click", function(e){
-        e.preventDefault();
-        searchRequest();
-    });
+// TODO!!!! TURBOLINKS LOADS THE JS TWICE
 
-    function searchRequest(){
+window.mkit = window.mkit || {};
+
+mkit.machineIndex = (function($){
+    var init = function(){
+        createHandlers();
+        mkit.initializeAutocomplete({map:false})
+        initMap(".map");
+        mkit.machineIndex.$template = loadTemplate();
+        searchFromQueryString();
+    }
+
+    var createHandlers = function(){
+        $(".machine_search > input[type='submit']").on("click", function(e){
+            e.preventDefault();
+            searchRequest();
+        });
+    }
+
+    var searchRequest = function(){
         var address = $('#address').val();
         var distance = $('#distance').val();
         var category = $('#category').val();
         getMachines(address,distance,category);
     }
 
-    function searchFromQueryString(){
+    var searchFromQueryString = function(){
         var url = $.url();
         var address = url.param('search');
         var distance = url.param('distance');
@@ -22,20 +35,27 @@ function initializePage(){
         getMachines(address,distance,category);
     }
 
-    function getMachines(address, distance, category){
+    // todo: refactor
+    var getMachines = function(address, distance, category){
         $(".ajax-loader").fadeIn('fast');
+        $('.results').empty();
         $.get('/machines/search', {search: address, distance: distance, category: category}, function(data){
             window.machines = data;
             $(".ajax-loader").fadeOut('fast');
-            $('.results').empty();
             $.each(data, function(index, machine){
-                $('.results').append(machine["name"]).append(machine["address_info"]["address"]).append("<br/>");
+                $result = mkit.machineIndex.$template.clone();
+                $result.find(".machine_name").html(machine.name);
+                $result.find(".machine_category").html(machine.category);
+                // todo: replace this with the city
+                $result.find(".machine_location").html(machine.address_info.address);
+                $('.results').append($result);
+                $result = null;
             })
             showGoogleMapsResults(address);
         });
     }
 
-    function showGoogleMapsResults(searchAddress){
+    var showGoogleMapsResults = function(searchAddress){
         var geocoder = new google.maps.Geocoder
         geocoder.geocode({address: searchAddress}, function(results, status) {
             map.setCenter(results[0].geometry.location);
@@ -52,13 +72,34 @@ function initializePage(){
         });
     }
 
-    function initMap(){
+    var initMap = function(css_selector){
         var mapOptions = {
             center: new google.maps.LatLng(-34.397, 150.644),
             zoom: 1,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        // Make sure this doesn't interfere with other google map elements
-        window.map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+        // default to #map_canvas if there isn't anything else.
+        if (css_selector) {} else {
+            css_selector = "#map-canvas"
+        }
+
+        window.map = new google.maps.Map($(css_selector)[0], mapOptions);
     }
-}
+
+    var loadTemplate = function(){
+        if (mkit.machineIndex.$template) {
+            return mkit.machineIndex.$template;
+        } else {
+            var $template = $(".result-template").clone();
+            $(".result-template").remove();
+            $template.removeClass("result-template");
+            return $template;
+        }
+    }
+
+    return {
+        init: init
+    }
+
+})(jQuery);

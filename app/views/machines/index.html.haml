@@ -1,25 +1,30 @@
 - content_for :javascripts do
-  %script{:src => "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"}
+  %script{:src => "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&key=AIzaSyBb2gpZp1IWftceIrCBoY5dWUjdRMl_94Q"}
   = javascript_include_tag 'machines'
 
   :javascript
-    $(document).ready(initialize({map:false}));
-    $(document).on('page:load', initialize({map:false}));
-    $(document).ready(initializePage());
-    $(document).on('page:load', initializePage());
+    $(document).ready(mkit.machineIndex.init());
 
-%h1 Machines#index
+.row
+  .small-12.large-4.columns
+    .map
+    .search
+      %form{class: "machine_search custom"}
+        %input{type: "text", placeholder: "Search", id: "address"}
+        %input{type: "number", id: "distance", placeholder: "Distance", value: 20}
+        = select_tag(:category, options_for_select([['3d Printer', '3d Printer'], ['Laser Cutter', 'Laser Cutter']]), id: "category")
+        %input{type: "submit", class: "button"}
 
-.search
-  %form{class: "machine_search"}
-    %input{placeholder: "Search", id: "address"}
-    %input{type: "number", id: "distance", placeholder: "Distance", value: 20}
-    = select_tag(:category, options_for_select([['3d Printer', '3d Printer'], ['Laser Cutter', 'Laser Cutter']]), id: "category")
-    %input{type: "submit"}
+  .small-12.large-8.columns
+    .ajax-loader
+      = image_tag("loader.gif", alt: "loading results")
 
-#map-canvas
-
-.ajax-loader
-  = image_tag("loader.gif", alt: "loading results")
-
-.results
+    .results
+      .result.row.result-template
+        = image_tag("http://placehold.it/300x220", alt: "placeholder", class: "machine_image small-12 large-4 columns")
+        .machine_info.small-12.large-8.columns
+          %h3.machine_name Machine Name
+          .details.cf
+            %p.machine_location Location Name
+            %span.machine_category
+              category

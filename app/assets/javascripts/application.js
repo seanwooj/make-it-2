@@ -12,11 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
 
 // CUSTOM SCRIPTS
 //= require google_maps/autocompleteInit
-//= require google_maps/mapInit
 
 // VENDOR SCRIPTS
 //= require purl
+
+window.mkit = window.mkit || {};
+$(document).foundation();

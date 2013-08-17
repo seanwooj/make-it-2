@@ -28,12 +28,18 @@ describe Location do
   context 'geocoder' do
     describe '#geocoder' do
 
-      it 'creates the correct latitude and longitude when the model is saved' do
+      it 'creates the correct latitude and longitude when the model is saved if lat lng are not saved on server side' do
         valid_location.longitude.should be_nil
         valid_location.latitude.should be_nil
         valid_location.save!
         valid_location.latitude.should == 33.6103025
         valid_location.longitude.should == -117.8353995
+      end
+
+      it 'assigns the correct city when the model is created' do
+        valid_location.city.should be_nil
+        valid.location.save!
+        valid_location.city.should == "Newport Coast"
       end
     end
   end
