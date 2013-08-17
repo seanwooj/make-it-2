@@ -4,7 +4,11 @@ window.mkit = window.mkit || {}
 
 mkit.registrationsNew = (function($, mkit){
     var init = function(){
-        mkit.initializeAutocomplete({map: true});
+        mkit.initializeAutocomplete({
+            map: true,
+            latitude_form: "#user_locations_attributes_0_latitude",
+            longitude_form: "#user_locations_attributes_0_longitude"
+        });
         preventEnter();
     }
 

@@ -70,7 +70,15 @@ mkit.initializeAutocomplete = function(initOptions) {
             infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
             infowindow.open(map, marker);
         }
-        debugger;
 
+        if (initOptions.latitude_form) {
+            $(initOptions.latitude_form).val(place.geometry.location.mb);
+        }
+
+        if (initOptions.longitude_form) {
+            $(initOptions.longitude_form).val(place.geometry.location.nb);
+        }
+
+        debugger;
     });
 }

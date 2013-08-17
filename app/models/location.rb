@@ -3,10 +3,6 @@ class Location < ActiveRecord::Base
   belongs_to :user
   has_many :machines, through: :user
 
-  # geocoder
-  geocoded_by :address
-  after_validation :assign_city, if: :address_changed?
-
   private
 
   def assign_city
