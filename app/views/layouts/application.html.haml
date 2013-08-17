@@ -26,5 +26,7 @@
   = render 'layouts/navigation'
   = yield
 
+  = debug(params)
+
   = javascript_include_tag "application"
   = yield :javascripts

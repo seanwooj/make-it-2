@@ -11,8 +11,9 @@
       = builder.text_field :address, id: 'address'
       = builder.label :address_2
       = builder.text_field :address_2
-      = builder.hidden_field :latitude
-      = builder.hidden_field :longitude
+      = builder.hidden_field_tag :latitude
+      = builder.hidden_field_tag :longitude
+      = builder.hidden_field_tag :city
       %br/
   #map-canvas
 

@@ -7,7 +7,8 @@ mkit.registrationsNew = (function($, mkit){
         mkit.initializeAutocomplete({
             map: true,
             latitude_form: "#user_locations_attributes_0_latitude",
-            longitude_form: "#user_locations_attributes_0_longitude"
+            longitude_form: "#user_locations_attributes_0_longitude",
+            city_form: "#user_locations_attributes_0_city"
         });
         preventEnter();
     }

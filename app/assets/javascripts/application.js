@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
 
 // CUSTOM SCRIPTS
 //= require google_maps/autocompleteInit

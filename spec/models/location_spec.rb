@@ -4,7 +4,9 @@ describe Location do
   subject(:valid_location) { Location.new(
       address: "86 Lessay, Newport Coast, CA 92657, USA",
       address_2: "Upstairs Bedroom",
-      user_id: 1
+      user_id: 1,
+      latitude: 33.6103025,
+      longitude: -117.8353995
   ) }
 
   it { should belong_to(:user) }
