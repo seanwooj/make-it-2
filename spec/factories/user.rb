@@ -26,6 +26,9 @@ FactoryGirl.define do
   factory :location do
     address "86 Lessay, Newport Coast, CA 92657, USA"
     address_2 "Upstairs Bedroom"
+    city "Newport Coast"
+    latitude 33.6103025
+    longitude -117.8353995
 
     factory :random_location do
       address do

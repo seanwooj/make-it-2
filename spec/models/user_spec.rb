@@ -43,9 +43,5 @@ describe User do
     end
   end
 
-  context "machines" do
-
-  end
-
 end
 

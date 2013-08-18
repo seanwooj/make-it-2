@@ -36,6 +36,20 @@ describe "NewUserRegistrations" do
       # todo this is a kludge. fix later
       page.should_not have_css("#user_locations_attributes_1_address_2")
     end
+
+    it "correctly creates lat/lng via google maps api", :js => true do
+      user = FactoryGirl.build(:user)
+      visit new_user_registration_path
+      fill_in "Email", :with => user.email
+      fill_in "Full name", :with => user.full_name
+      fill_in "Password", :with => user.password
+      fill_in "Password confirmation", :with => user.password
+      fill_in "address", :with => "86 Lessay, New"
+      sleep 1
+      find('#address').native.send_keys :arrow_down
+      find('#address').native.send_keys :return
+      click_button "Sign up"
+      User.where(:full_name => user.full_name).first.should be_valid
+    end
   end
 end
-
