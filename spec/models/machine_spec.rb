@@ -48,7 +48,8 @@ describe Machine do
       address_info = machine.address_info
       address_info.should == { :lat => 33.6103025,
                                :lng => -117.8353995,
-                               :address => "86 Lessay, Newport Coast, CA 92657, USA"
+                               :address => "86 Lessay, Newport Coast, CA 92657, USA",
+                               :city => "Newport Coast"
                              }
     end
   end

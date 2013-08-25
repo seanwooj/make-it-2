@@ -40,6 +40,9 @@ FactoryGirl.define do
         addresses.sample
       end
       address_2 ""
+      latitude nil
+      longitude nil
+      city nil
     end
   end
 

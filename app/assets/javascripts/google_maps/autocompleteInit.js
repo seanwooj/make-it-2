@@ -83,6 +83,5 @@ mkit.initializeAutocomplete = function(initOptions) {
             $(initOptions.city_form).val(place.vicinity);
         }
 
-        debugger;
     });
 }

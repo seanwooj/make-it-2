@@ -1,7 +1,5 @@
 //= include google_maps/autocompleteInit
 
-// TODO!!!! TURBOLINKS LOADS THE JS TWICE
-
 window.mkit = window.mkit || {};
 
 mkit.machineIndex = (function($){
@@ -46,8 +44,7 @@ mkit.machineIndex = (function($){
                 $result = mkit.machineIndex.$template.clone();
                 $result.find(".machine_name").html(machine.name);
                 $result.find(".machine_category").html(machine.category);
-                // todo: replace this with the city
-                $result.find(".machine_location").html(machine.address_info.address);
+                $result.find(".machine_location").html(machine.address_info.city);
                 $('.results').append($result);
                 $result = null;
             })
