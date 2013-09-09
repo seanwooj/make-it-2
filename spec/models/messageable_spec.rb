@@ -9,4 +9,13 @@ describe Messageable do
     messageable.body = "boooppy boop"
     messageable.save!
   end
+
+  it "saves when a conversation already exists" do
+    u1 = FactoryGirl.create(:user)
+    u2 = FactoryGirl.create(:user)
+    conversation = Conversation.create(:sender_id => u1.id, :recipient_id => u2.id)
+    message = Messageable.prepare_messageable(u1.id, u2.id)
+    message.body = "exists!"
+    message.save!
+  end
 end

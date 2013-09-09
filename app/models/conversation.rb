@@ -36,6 +36,10 @@ class Conversation < ActiveRecord::Base
     [sender, recipient]
   end
 
+  def other_user(current_user)
+    (participants - [current_user]).first
+  end
+
   private
 
   def create_user_conversations
