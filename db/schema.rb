@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20130908193527) do
   create_table "user_conversations", force: true do |t|
     t.integer  "user_id"
     t.integer  "conversation_id"
-    t.boolean  "is_unread"
+    t.boolean  "is_unread",             default: true
     t.integer  "last_read_messageable"
     t.datetime "created_at"
     t.datetime "updated_at"
