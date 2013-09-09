@@ -1,6 +1,7 @@
 MakeIt2::Application.routes.draw do
   devise_for :users
   resources :users
+  resources :conversations
   resources :machines do
     collection do
       get :search

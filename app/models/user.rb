@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
 
   has_many :locations, dependent: :destroy
   has_many :machines, dependent: :destroy
+  has_many :user_conversations
+  has_many :conversations, :through => :user_conversations
+  has_many :messageables, :through => :conversations
 
   accepts_nested_attributes_for :locations, allow_destroy: true
   validates_presence_of :locations

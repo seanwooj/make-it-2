@@ -53,4 +53,5 @@ end
 
 group :development do
   gem 'awesome_print', :require => 'ap'
+  gem 'interactive_editor'
 end
