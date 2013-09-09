@@ -28,7 +28,7 @@ class Conversation < ActiveRecord::Base
     unless conversation.nil?
       conversation
     else
-      Conversation.new(:sender_id => sender_id, :recipient_id => recipient_id)
+      Conversation.create(:sender_id => sender_id, :recipient_id => recipient_id)
     end
   end
 

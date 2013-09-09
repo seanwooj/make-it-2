@@ -6,9 +6,11 @@ class Messageable < ActiveRecord::Base
   validates_presence_of :body
   validates_presence_of :conversation
 
-  def find_or_create_conversation
-
+  def self.prepare_messageable(sender_id, recipient_id)
+    conversation = Conversation.find_or_create_by_user_ids(sender_id, recipient_id)
+    messageable = conversation.messageables.build(:sender_id => sender_id)
   end
+
 
 end
 
