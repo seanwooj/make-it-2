@@ -5,8 +5,12 @@
   :javascript
     $(document).ready(mkit.homeIndex.init());
 
-.search
-  = form_tag machines_path, method: "get" do
-    = text_field_tag :search, params[:search], placeholder: "Search", id: "address"
-    = hidden_field_tag :distance, params[:distance], value: 20
-    = submit_tag "search", name: nil, class: "button"
+.masthead
+  .row
+    .small-12
+      .search
+        %h1 Find 3d Printers near you
+        %h3 Get your designs printed by a local maker!
+        = form_tag machines_path, method: "get" do
+          = text_field_tag :search, params[:search], placeholder: "Search", id: "address"
+          = hidden_field_tag :distance, params[:distance], value: 20

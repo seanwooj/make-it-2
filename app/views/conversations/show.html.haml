@@ -1,1 +1,9 @@
-= @other_user.full_name
+%h1
+  Conversation with
+  = @other_user.full_name
+- @messageables.each do |messageable|
+  = messageable.body
+  %i
+    sent by
+    = messageable.sender.full_name
+  %br

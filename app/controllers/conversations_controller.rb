@@ -14,6 +14,7 @@ class ConversationsController < ApplicationController
   def show
     @conversation = Conversation.find(params[:id])
     @other_user = @conversation.other_user(current_user)
+    @messageables = @conversation.messageables
   end
 
   def create
