@@ -41,4 +41,13 @@ describe Conversation do
     conversation = FactoryGirl.create(:conversation)
     conversation.other_user(conversation.sender).should == conversation.recipient
   end
+
+  it "finds or creates by two user ids" do
+    u1 = FactoryGirl.create(:user)
+    u2 = FactoryGirl.create(:user)
+    c = Conversation.find_or_create_by_user_ids(u1.id, u2.id)
+    c2 = Conversation.find_or_create_by_user_ids(u1.id, u2.id)
+    c.should == c2
+    c.id.should == c2.id
+  end
 end

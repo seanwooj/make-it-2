@@ -29,4 +29,5 @@ MakeIt2::Application.configure do
 
   # For devise setup
   config.action_mailer.default_url_options = { :host => 'localhost:4200' }
+
 end

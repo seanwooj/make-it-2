@@ -27,6 +27,7 @@
     @include default-text-shadow;
     margin-bottom: 15px;
     background: white;
+    position: relative;
     .machine_image {
       padding-left: 0px;
     }
@@ -49,6 +50,14 @@
       @include default-text-shadow;
       font-size: 12px;
       text-transform: lowercase;
+    }
+    .link_to_machine span {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
     }
   }
 }

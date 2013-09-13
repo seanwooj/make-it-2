@@ -45,6 +45,7 @@ mkit.machineIndex = (function($){
                 $result.find(".machine_name").html(machine.name);
                 $result.find(".machine_category").html(machine.category);
                 $result.find(".machine_location").html(machine.address_info.city);
+                $result.find(".link_to_machine").attr("href", machine.url);
                 $('.results').append($result);
                 $result = null;
             })

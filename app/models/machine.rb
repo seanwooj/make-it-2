@@ -37,7 +37,11 @@ class Machine < ActiveRecord::Base
   end
 
   def as_json(options = {})
-    super(methods: :address_info, include: :user)
+    # adding the url to the json that is created to populate links in
+    # machine results
+    json = super(methods: :address_info, include: :user)
+    url = {url: Rails.application.routes.url_helpers.machine_path(self)}
+    json.merge(url)
   end
 
 end

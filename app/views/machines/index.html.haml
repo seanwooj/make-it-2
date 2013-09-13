@@ -22,6 +22,8 @@
     .results
       .result.row.result-template
         = image_tag("http://placehold.it/300x220", alt: "placeholder", class: "machine_image small-12 large-4 columns")
+        %a.link_to_machine{href: "#"}
+          %span
         .machine_info.small-12.large-8.columns
           %h3.machine_name Machine Name
           .details.cf
