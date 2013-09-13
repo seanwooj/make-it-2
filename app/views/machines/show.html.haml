@@ -1,2 +1,3 @@
-%h1 Machines#show
-%p Find me in app/views/machines/show.html.haml
+%h1= @machine.name
+= @machine.user.full_name
+= link_to "contact user", new_conversation_path(:recipient_id => @machine.user.id)
